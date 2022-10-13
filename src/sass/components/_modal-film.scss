@@ -1,0 +1,214 @@
+.backdrop {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-detail {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 280px;
+    padding: 48px 20px 40px 20px;
+    border-radius: 4px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    
+    @include fonts(12px, 16px, 500, inherit);
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(100px, 1fr) 1fr;
+    grid-template-areas: 
+    "poster"
+    "info"
+    "buttons"; 
+    row-gap: 20px;
+    min-height: 484px;
+    max-height: calc(100vh - 80px);
+
+    @include mq("tablet") {
+
+        grid-template-columns: 1fr 1fr; 
+        grid-template-rows: minmax(300px, 1fr) 44px;
+        grid-template-areas: 
+          "poster info"
+          "poster buttons"; 
+
+        width: 704px;
+        flex-direction: row;
+        column-gap: 68px;
+        padding: 48px 36px 40px 36px;
+    }
+
+    @include mq("desktop") {
+        width: 806px;
+        column-gap: 16px;
+        padding: 40px 12px;
+    }
+
+    &__close-button {
+        background-color: #0000;
+        border: 0;
+        display: flex;
+        position: absolute;
+        top: 3px;
+        padding: 0;
+        right: 0;
+        cursor: pointer;
+    }
+
+    &__close-icon {
+        stroke: #000;
+    }
+
+    &__close-icon:hover {
+        stroke: #ff6b01;
+    }
+
+    &__youtube-link {
+        position: absolute;
+        left: 5px;
+        cursor: pointer;
+    }
+
+    &__youtube-icon {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        stroke-width: 0;
+        fill: #f00;
+    }
+
+    &__youtube-icon:hover {
+        fill: #ff7878;
+    }
+
+    &__poster {
+        position: relative;
+        grid-area: poster;        
+    }
+
+    &__image {
+        width: 240px;
+        height: 100%;
+        // height: 170px;
+        object-fit: contain;
+
+        @include mq("tablet") {
+            width: 264px;
+            // height: auto;
+            // object-fit: cover;
+        }
+
+        @include mq("desktop") {
+            width: 375px;
+        }
+    }
+
+    &__info {
+        grid-area: info;
+        // flex-grow: 1;
+        // height: 100%;
+        // height: 100px;
+        overflow-y: scroll;
+
+        @include mq("tablet") {
+            height: auto;
+            overflow-y: auto;
+        }
+
+    }
+
+    &__title {
+        @include fonts(20px, 23px, 500, inherit);
+        padding-bottom: 20px;
+    }
+
+    &__table {
+        width: 100%;
+        padding-bottom: 20px;
+    }
+
+    &__col1 {
+        width: 50%;
+        color: #8c8c8c;
+        padding-bottom: 8px;
+    }
+
+    // &__col2 {
+    // }
+
+    &__vote-avg {
+        background-color: #ff6b08;
+        color: #fff;
+        border-radius: 5px;
+        padding: 1px 10px;
+    }
+
+    &__about-label {
+        text-transform: uppercase;
+        padding-bottom: 8px;
+    }
+
+    &__article {
+        @include fonts(12px, 20px, 500, inherit);
+    }
+
+    &__buttons-wrapper {
+        grid-area: buttons;
+        display: flex;
+        gap: 4px;
+        justify-content: center;
+    }
+
+    &__btn {
+        height: 44px;
+        border-radius: 5px;
+
+        @include fonts(12px, 16px, 500, inherit);
+        text-transform: uppercase;
+        background: #fff;
+        border: 1px solid #000000;
+        color: #000;
+        cursor: pointer;
+
+        @include mq("tablet") {
+            padding: 4px 10px;
+        }
+    }
+
+    &__btn--active {
+        background: #ffc3a7;
+        border: 1px solid #ff6b01;
+        color: #832626;
+    }
+
+    &__trailer-btn:disabled {
+        color: #808080;
+        border-color: #808080;
+    }
+
+    @media (hover: hover) {
+        &__btn:hover:enabled {
+            background: #ff6b01;
+            border: 1px solid #ff6b01;
+            color: #ffffff;
+            cursor: pointer;
+        }
+    }
+    @media (hover: none) {
+        &__btn:active:enabled {
+            background: #ff6b01;
+            border: 1px solid #ff6b01;
+            color: #ffffff;
+            cursor: pointer;
+        }
+    }
+}

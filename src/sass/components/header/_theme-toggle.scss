@@ -1,0 +1,107 @@
+.theme-toggle__wrapper {
+    margin-left: 20px;
+    margin-right: auto;
+}
+
+.theme-toggle__btn {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border-radius: 12px;
+    border: none;
+    width: 50px;
+    height: 24px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.theme-toggle__icon-sun {
+    display: none;
+}
+
+.theme-toggle__icon-moon {
+    display: block;
+}
+
+body.dark-theme {
+    // Головний колір body
+    background-color: #272e34;
+
+    // Стилізація кнопки
+    & .theme-toggle__icon-sun {
+        display: block;
+    }
+
+    & .theme-toggle__icon-moon {
+        display: none;
+    }
+
+    // Головна сторінка
+    & .movies-section {
+        border-top: 1px solid #ae191b;
+    }
+
+    & .movies-section__image {
+        box-shadow: rgba(204, 204, 204, 0.25) 2px 2px 25px 2px;
+    }
+
+    & .movies-section__title {
+        color: #fff;
+    }
+
+    & .next-card__title {
+        color: #fff;
+    }
+
+    & .pagination li {
+        background-color: #ff6b01c2;
+    }
+
+    & .footer {
+        background-color: #272e34;
+    }
+
+    & .footer__text,
+    & .footer__link {
+        color: #fff;
+
+    }
+
+    // Модальне вікно футера
+    & .footer-modal__title {
+        color: #272e34;
+    }
+
+    & .footer-modal__bg {
+        background-color: #3d3a2c;
+    }
+
+    // Модальне вікно картки
+    & .modal-detail {
+        background-color: #272e34;
+    }
+
+    & .modal-detail__title {
+        color: #fff;
+    }
+
+    & .modal-detail__col1,
+    & .modal-detail__col2 {
+        color: #fff;
+    }
+
+    & .modal-detail__about-label {
+        color: #fff;
+    }
+
+    & .modal-detail__article {
+        color: #fff;
+    }
+
+    & .movies-section__message {
+        color: #fff;
+    }
+}
